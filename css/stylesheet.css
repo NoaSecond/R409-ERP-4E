@@ -1,0 +1,36 @@
+/*-----COLORS-----*/
+:root {
+    --Deep-Lemon: #F7CA1E;
+    --Beer: #F28C0F;
+    --Orange-Soda: #F25835;
+    --Shadow: #00000080;
+}
+
+/*-----SCROLLBAR-----*/
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px transparent;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--Deep-Lemon);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--Beer);
+}
+
+/*-----PAGE-----*/
+* {
+    font-family: 'Open Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+html {
+    overflow-x: hidden;
+    background-color: black;
+}
+body {
+    margin: 0;
+}
