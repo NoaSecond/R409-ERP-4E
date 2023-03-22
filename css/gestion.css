@@ -1,0 +1,27 @@
+section#content {
+    display: flex;
+}
+div#contentLeft {
+    width: 50%;
+    height: 100vh;
+}
+div#contentRight {
+    width: 50%;
+    height: 100vh;
+    background-color: var(--Light-Silver);
+}
+
+div#searchHeader {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+input[type="text"] {
+    width: 200px;
+    height: 35px;
+    padding: 0px 15px;
+    border-radius: 35px;
+}
+input[type="text"]:focus {
+    box-shadow: inset 0px 0px 4px 0px black;
+}
