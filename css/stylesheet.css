@@ -1,6 +1,6 @@
 /*-----COLORS-----*/
 :root {
-    --Auburn: #A6292E;
+    --Maya-Blue: #61ccff;
     --Black-Olive: #404040;
     --Gray: #BEBEBE;
     --Light-Silver: #D9D9D9;
@@ -47,7 +47,7 @@ input:focus-visible {
 * {
     font-family: 'Open Sans', sans-serif;
     scroll-behavior: smooth;
-    transition: ease-in-out 0.25s;
+    transition: ease-in-out 0.15s;
 }
 html {
     overflow-x: hidden;
@@ -77,7 +77,7 @@ section#menu {
     cursor: pointer;
 }
 .active {
-    fill: var(--Auburn) !important;
+    fill: var(--Maya-Blue) !important;
 }
 #menu>div>a>svg, #menu>a>svg {
     width: 35px;
@@ -119,6 +119,9 @@ section#menu {
 section#menu.menuExtanded {
     align-items: flex-start !important;
 }
+
+
+
 
 
 /*-----CONTENT-----*/
