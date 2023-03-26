@@ -76,8 +76,12 @@ section#menu {
 #menuArrowSVG {
     cursor: pointer;
 }
-.active {
-    fill: var(--Maya-Blue) !important;
+.active>path {
+    animation: activeFade 0.25s forwards;
+}
+@keyframes activeFade {
+    0% {fill: var(--Light-Silver); }
+    100% { fill: var(--Maya-Blue);  }
 }
 #menu>div>a>svg, #menu>a>svg {
     width: 35px;
@@ -115,11 +119,25 @@ section#menu {
 }
 .menuText.menuExtanded {
     display: block;
+    opacity: 0;
+    animation: menuTextFade 0.15s forwards 0.3s;
+}
+@keyframes menuTextFade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }    
 }
 section#menu.menuExtanded {
     align-items: flex-start !important;
+    animation: menuExtand 0.3s forwards;
 }
-
+@keyframes menuExtand {
+    0% {width: 45px; }
+    100% {width: 273.794px; }
+}
 
 
 
