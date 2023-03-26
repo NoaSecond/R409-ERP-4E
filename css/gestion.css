@@ -51,6 +51,14 @@ input[type="text"]:focus {
     margin-left: 25px;
     fill: var(--Black-Olive);
 }
+#searchBtn {
+    margin-left: inherit;
+}
+#searchIcon {
+    width: 0px;
+    height: 0px;
+}
+
 div#memberList {
     display: flex;
     flex-direction: column;
