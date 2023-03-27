@@ -38,6 +38,9 @@ div#contentRight {
     border-radius: 5px;
     cursor: pointer;
 }
+.pompe>div>svg:hover {
+    outline: solid 1px var(--Light-Silver);
+}
 #p1 {
     background-color: var(--Forest-Green);
 }

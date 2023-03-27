@@ -60,6 +60,11 @@ main {
     display: flex;
 }
 
+/*-----FONT-----*/
+b {
+    font-weight: 600;
+}
+
 /*-----MENU-----*/
 section#menu {
     background-color: var(--Black-Olive);

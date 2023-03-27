@@ -78,6 +78,9 @@ div#memberList {
     justify-content: space-between;
     margin: 10px 0px;
 }
+.member:hover {
+    box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.7);
+}
 .member>a {
     text-decoration: none;
     color: var(--Black-Olive);
@@ -97,5 +100,9 @@ div#memberList {
     display: flex;
 }
 .member>div>a>svg {
+    transition: 0.1s ease-in-out;
     fill: var(--Black-Olive);
+}
+.member>div>a>svg:hover {
+    fill: var(--Fire-Engine-Red);
 }
