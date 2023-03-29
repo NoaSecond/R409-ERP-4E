@@ -11,21 +11,29 @@ function menuOnload() {
 
     menuArrowSVG.addEventListener('click', () => {
         if (menuArrowSVG.classList.contains('menuExtanded')) {
-            menu.classList.remove('menuExtanded');
+            //Fermer le menu
             menuArrowSVG.classList.remove('menuExtanded');
             menuHomeText.classList.remove('menuExtanded');
             menuTransportText.classList.remove('menuExtanded');
             menuServicesText.classList.remove('menuExtanded');
             menuRHText.classList.remove('menuExtanded');
             menuPompesText.classList.remove('menuExtanded');
+
+            document.getElementById("menu").style.width = "335px";
+            menu.classList.remove('menuExtanded');
+            menu.classList.add('menuCloseSmooth');
         } else {
-            menu.classList.add('menuExtanded');
+            //Ouvrir le menu
             menuArrowSVG.classList.add('menuExtanded');
             menuHomeText.classList.add('menuExtanded');
             menuTransportText.classList.add('menuExtanded');
             menuServicesText.classList.add('menuExtanded');
             menuRHText.classList.add('menuExtanded');
             menuPompesText.classList.add('menuExtanded');
+            
+            document.getElementById("menu").style.width = "";
+            menu.classList.remove('menuCloseSmooth');
+            menu.classList.add('menuExtanded');
         }
     });
 }

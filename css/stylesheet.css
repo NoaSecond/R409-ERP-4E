@@ -70,7 +70,7 @@ section#menu {
     background-color: var(--Black-Olive);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     width: fit-content;
     height: 100vh;
     border-radius: 0px 15px 15px 0px;
@@ -113,6 +113,17 @@ section#menu {
     font-weight: 500;
     text-decoration: none;
     display: none;
+}
+.menuCloseSmooth {
+    animation: menuClose 0.25s forwards ease-in-out;
+}
+@keyframes menuClose {
+    from {
+        width: 335px;
+    }
+    to {
+        width: 45px;      
+    }
 }
 
 /*-----MENU EXTANDED-----*/
