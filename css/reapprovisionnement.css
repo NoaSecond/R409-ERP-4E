@@ -8,26 +8,65 @@ div#contentRight {
     width: 40%;
     height: 100vh;
     background-color: var(--Light-Silver);
+    justify-content: center;
 }
-
+#contentRight>.switch>.rightSwitchText {
+    transform: translateX(20px);
+}
+#contentRight>.switch>.leftSwitchText {
+    transform: translateX(-60px);
+}
+#contentRight>.switch>.slider {
+    background-color: var(--Black-Olive);
+}
 
 /*-----LEFT CONTENT-----*/
 div#contentLeft {
     width: 60%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+#headerLeft {
+    transition: 0.4s ease-in-out;
+    width: 40%;
+    height: 100px;
+    opacity: 0.75;
+    display: flex;
+    position: absolute;
     justify-content: center;
+    align-items: center;
+    border-radius: 0px 0px 100% 100%;
+}
+#produitsWrap, #carburantsWrap {
+    width: 100%;
+    margin-top: 70px;
+}
+.produit, .carburant {
+    transition: 0.3s ease-in-out;
+    background: var(--Light-Silver);
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin: 20px 40px;
+}
+.carburant {
+    opacity: 0;
+}
+#carburantsWrap {
+    display: none;
 }
 
 
 /*-----TOGGLE SWITCH-----*/
-
 .switch {
     display: flex;
-    position: relative;
+    position: absolute;
+    z-index: 99;
     width: 60px;
     height: 34px;
-    margin-top: 30px;
+    margin: 30px 0px;
     align-items: center;
 }
 .switch input { 

@@ -153,3 +153,6 @@ section#content {
     height: 100vh;
     width: -webkit-fill-available;
 }
+#blurjs-5 {
+    display: none !important;
+}

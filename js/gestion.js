@@ -10,12 +10,12 @@ function gestionOnload() {
             searchIcon.style.width = "0px";
             searchIcon.style.height = "0px";
 
-            searchBtn.style.marginLeft = "inherit !important"
+            searchBtn.style.marginLeft = "inherit !important";
         } else {
             searchIcon.style.width = "35px";
             searchIcon.style.height = "35px";
 
-            searchBtn.style.marginLeft = "25px !important"
+            searchBtn.style.marginLeft = "25px !important";
         }
     });
 }
