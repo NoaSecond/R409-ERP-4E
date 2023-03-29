@@ -24,6 +24,7 @@
     <!--JS-->
     <script type="text/javascript" src="./js/loader.js"></script>
     <script type="text/javascript" src="./js/menu.js"></script>
+    <script type="text/javascript" src="./js/reapprovisionnement.js"></script>
 </head>
 <body onload="onLoad();">
     <main>        
@@ -51,7 +52,14 @@
             </div>
         </section>
         <section id="content">
-            <div id="contentLeft"></div>
+            <div id="contentLeft">
+                <label class="switch">
+                    <a class="leftSwitchText">Produits</a>
+                    <input type="checkbox" id="inputCarburantsProduits"/>
+                    <span class="slider round"></span>
+                    <a class="rightSwitchText">Carburants</a>
+                </label>
+            </div>
             <div id="contentRight"></div>
         </section>
     </main>

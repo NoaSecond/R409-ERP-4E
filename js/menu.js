@@ -1,4 +1,6 @@
 function menuOnload() {
+    console.log("[menu.js] : chargé");
+    
     const menu = document.querySelector('#menu');
     const menuArrowSVG = document.querySelector('#menuArrowSVG');
     const menuHomeText = document.querySelector('#menuHomeText');

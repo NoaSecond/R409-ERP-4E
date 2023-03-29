@@ -1,4 +1,6 @@
 function gestionOnload() {
+    console.log("[gestion.js] : chargé");
+    
     const searchBar = document.getElementById("searchBar");
     const searchIcon = document.getElementById("searchIcon");
     const searchBtn = document.getElementById("searchBtn");
