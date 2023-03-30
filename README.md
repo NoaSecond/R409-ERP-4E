@@ -5,3 +5,6 @@
 
 ## Description :
 This school project consists in creating a web interface for the management of a gas compagny.
+
+## External resources :
+blur.js : https://github.com/jakiestfu/Blur.js-II
