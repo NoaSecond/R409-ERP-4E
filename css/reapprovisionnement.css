@@ -25,14 +25,39 @@ div#contentRight {
     margin-top: 70px;
 }
 .produitPanier, .commande {
+    display: flex;
     transition: 0.3s ease-in-out;
     background: var(--Gray);
     padding: 15px 20px;
     border-radius: 15px;
     margin: 20px 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+.produit>div {
+    display: flex;
+    align-items: center;
+}
+.produit>div>a:last-child {
+    margin-left: 20px;
 }
 .produitPanier:hover, .commande:hover {
     box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.5);
+}
+.produitPanier>div {
+    display: flex;
+    align-items: center;
+}
+.produitPanier>div>input[type="number"] {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0px 15px;
+}
+.produitPanier>div>a>svg {
+    fill: var(--Black-Olive);
+}
+.produitPanier>div>a>svg:hover {
+    fill: var(--Vivid-Auburn);
 }
 .commande {
     opacity: 0;
@@ -99,14 +124,23 @@ div#contentLeft {
     margin-top: 70px;
 }
 .produit, .carburant {
+    display: flex;
     transition: 0.3s ease-in-out;
     background: var(--Light-Silver);
     padding: 15px 20px;
     border-radius: 15px;
     margin: 20px 40px;
+    justify-content: space-between;
+    align-items: center;
 }
 .produit:hover, .carburant:hover {
     box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.5);
+}
+.produit>div>a>svg {
+    fill: var(--Black-Olive);
+}
+.produit>div>a>svg:hover {
+    fill: var(--Forest-Green);
 }
 .carburant {
     opacity: 0;

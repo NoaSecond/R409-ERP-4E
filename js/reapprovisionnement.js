@@ -2,6 +2,7 @@ function reapprovisionnementOnload() {
     headerOnScroll();
     toggleSwitchLeft();
     toggleSwitchRight();
+    changeStockColor();
     console.log("[reapprovisionnement.js] : chargé");
 }
 
@@ -102,6 +103,16 @@ function toggleSwitchRight() {
           });
         }, 100);  
       }, 300);  
+    }
+  });
+}
+
+function changeStockColor() {
+  const textStockProduit = document.querySelectorAll(".stockProduit");
+  textStockProduit.forEach((text) => {
+    const stockValue = parseInt(text.textContent.replace("Stock : ", ""));
+    if (stockValue < 10) {
+      text.style.color = "var(--Vivid-Auburn)";
     }
   });
 }

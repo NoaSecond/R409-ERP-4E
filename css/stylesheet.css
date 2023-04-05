@@ -42,6 +42,10 @@ input:focus-visible {
     appearance: none;
     outline: inherit;
 }
+input[type="number"] {
+    appearance: none;
+    outline: inherit;
+}
 
 /*-----PAGE-----*/
 * {
