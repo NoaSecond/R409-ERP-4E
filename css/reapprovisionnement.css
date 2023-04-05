@@ -8,7 +8,8 @@ div#contentRight {
     width: 40%;
     height: 100vh;
     background-color: var(--Light-Silver);
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 #contentRight>.switch>.rightSwitchText {
     transform: translateX(20px);
@@ -18,6 +19,59 @@ div#contentRight {
 }
 #contentRight>.switch>.slider {
     background-color: var(--Black-Olive);
+}
+#panierWrap, #commandesWrap {
+    width: 100%;
+    margin-top: 70px;
+}
+.produitPanier, .commande {
+    transition: 0.3s ease-in-out;
+    background: var(--Gray);
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin: 20px 40px;
+}
+.produitPanier:hover, .commande:hover {
+    box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.5);
+}
+.commande {
+    opacity: 0;
+}
+#commandesWrap {
+    display: none;
+}
+#totalCount {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    height: 20vh;
+    width: 40%;
+    background-color: var(--Gray);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#totalCount>div>a {
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+}
+#totalCount>div>a:last-child {
+    color: var(--Lime-Green);
+}
+#btnCommander {
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+    background-color: var(--Lime-Green);
+    border-radius: 15px;
+    padding: 10px 25px;
+    margin-top: 15px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+#btnCommander:hover {
+    box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.5);
 }
 
 /*-----LEFT CONTENT-----*/

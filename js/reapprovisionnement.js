@@ -1,6 +1,7 @@
 function reapprovisionnementOnload() {
     headerOnScroll();
     toggleSwitchLeft();
+    toggleSwitchRight();
     console.log("[reapprovisionnement.js] : chargé");
 }
 
@@ -23,20 +24,6 @@ function headerOnScroll() {
 }
 
 function toggleSwitchLeft() {  
-  const toggleSwitchPanierCommandes = document.getElementById("inputPanierCommandes");
-  const panierWrap = document.getElementById("panierWrap");
-  const panierList = document.querySelectorAll(".produitPanier");
-  const commandesWrap = document.getElementById("commandesWrap");
-  const commandesList = document.querySelectorAll(".commande");
-
-  toggleSwitchPanierCommandes.addEventListener('change', function() {
-    if (toggleSwitchPanierCommandes.checked) {
-      //Display Commandes
-    } else {
-      //Display Panier
-    }
-  });
-
   const toggleSwitchCarbuProds = document.getElementById("inputCarburantsProduits");
   const produitsWrap = document.getElementById("produitsWrap");
   const produitsList = document.querySelectorAll(".produit");
@@ -73,5 +60,48 @@ function toggleSwitchLeft() {
           }, 100);  
         }, 300);  
       }
+  });
+}
+
+function toggleSwitchRight() {  
+  const toggleSwitchPanierCommandes = document.getElementById("inputPanierCommandes");
+  const panierWrap = document.getElementById("panierWrap");
+  const panierList = document.querySelectorAll(".produitPanier");
+  const commandesWrap = document.getElementById("commandesWrap");
+  const commandesList = document.querySelectorAll(".commande");
+  const totalCount = document.getElementById("totalCount");
+
+  toggleSwitchPanierCommandes.addEventListener('change', function() {
+    if (toggleSwitchPanierCommandes.checked) {
+      //Display Commandes
+      panierList.forEach((produitPanier) => {
+        produitPanier.style.opacity = "0";
+        totalCount.style.opacity = "0";
+      });
+      setTimeout(function(){
+        panierWrap.style.display = "none";
+        commandesWrap.style.display = "block";
+        setTimeout(function(){
+          commandesList.forEach((commande) => {
+            commande.style.opacity = "1";
+          });
+        }, 100);  
+      }, 300);  
+    } else {
+      //Display Panier
+      commandesList.forEach((commande) => {
+        commande.style.opacity = "0";
+      });
+      setTimeout(function(){
+        panierWrap.style.display = "block";
+        commandesWrap.style.display = "none";
+        setTimeout(function(){
+          panierList.forEach((produitPanier) => {
+            produitPanier.style.opacity = "1";
+            totalCount.style.opacity = "1";
+          });
+        }, 100);  
+      }, 300);  
+    }
   });
 }
