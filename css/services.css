@@ -1,18 +1,23 @@
 section#content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+}
+#servicesWrap {
     padding-left: 50px;
     display: flex;
     background-color: var(--Gray);
-    height: 100vh;
-    width: inherit;
     flex-direction: row;
-    align-items: center;
-    overflow-x: scroll;
+    align-items: flex-start;
     justify-content: flex-start;
+    margin-right: 10px;
 }
 .service {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: max-content;
 }
 .service>a {
     font-size: 20px;
@@ -29,8 +34,29 @@ section#content {
     border-radius: 5px;
     flex-direction: column;
     align-items: center;
+    max-height: 45vh;
+    overflow-y: scroll;
+}
+.service>div>div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+.service>div>div>a {
+    margin-right: 25px;
+}
+.service>div>div>div>a>svg {
+    width: 35px;
+    height: 35px;
+    fill: var(--Black-Olive);
+    transition: ease-in-out 0.1s;
+}
+.service>div>div>div>a>svg:hover {
+    fill: var(--Light-Silver);
 }
 hr {
     margin: 0px 20px;
-    height: 60vh;
+    height: 40vh;
+    border: solid 0.1px black;
 }
