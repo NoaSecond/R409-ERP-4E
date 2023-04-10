@@ -118,6 +118,7 @@ section#menu {
     font-weight: 500;
     text-decoration: none;
     display: none;
+    white-space: nowrap;
 }
 .menuCloseSmooth {
     animation: menuClose 0.25s forwards ease-in-out;
