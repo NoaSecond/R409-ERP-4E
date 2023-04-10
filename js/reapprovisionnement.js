@@ -23,7 +23,6 @@ function updateTotalPrice() {
     const prixElement = produit.querySelector('div').querySelector('a').textContent;
     const quantite = produit.querySelector('input').value;
     const prix = parseFloat(prixElement.replace(' €', '')) * parseInt(quantite);
-    console.log(prix);
     prixTotal += prix;
   });
 
