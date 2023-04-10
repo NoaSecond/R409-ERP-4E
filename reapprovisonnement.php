@@ -1,3 +1,30 @@
+<?php
+// Voir les erreurs pendant le dev
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require "./phpScript/dbConnect.php";
+
+function getProductList() {
+    $db = createDbConnection();
+    $query = mysqli_query($db, "SELECT libelle, quantite, prixProduit FROM Produits");
+    $products = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    $productList = "";
+    foreach ($products as $product) {
+        $productList .= '<div class="produit">
+                            <a>' . $product['libelle'] . '</a>
+                            <div>
+                                <a class="stockProduit">Stock : ' . $product['quantite'] . '</a>
+                                <a>&nbsp;|&nbsp;</a>
+                                <a>PU : ' . $product['prixProduit'] . '€</a>
+                                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
+                            </div>
+                        </div>';
+    }
+    return $productList;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -65,132 +92,7 @@
                     <a class="rightSwitchText">Carburants</a>
                 </label>
                 <div id="produitsWrap">
-                    <div class="produit">
-                        <a>Lays Nature</a>
-                        <div>
-                            <a class="stockProduit">Stock : 2</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <a>Lays Barbecue</a>
-                        <div>
-                            <a class="stockProduit">Stock : 2</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <a>Mars</a>
-                        <div>
-                            <a class="stockProduit">Stock : 2</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <a>Twix</a>
-                        <div>
-                            <a class="stockProduit">Stock : 10</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <a>Snickers</a>
-                        <div>
-                            <a class="stockProduit">Stock : 2</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <a>Fanta</a>
-                        <div>
-                            <a class="stockProduit">Stock : 22</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <a>Oasis</a>
-                        <div>
-                            <a class="stockProduit">Stock : 42</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <a>Orangina</a>
-                        <div>
-                            <a class="stockProduit">Stock : 12</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <a>Coca-Cola</a>
-                        <div>
-                            <a class="stockProduit">Stock : 2</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <a>Pepsi</a>
-                        <div>
-                            <a class="stockProduit">Stock : 2</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <a>7up</a>
-                        <div>
-                            <a class="stockProduit">Stock : 2</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <a>IceTea</a>
-                        <div>
-                            <a class="stockProduit">Stock : 2</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <a>MountainDew</a>
-                        <div>
-                            <a class="stockProduit">Stock : 2</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <a>Canada Dry</a>
-                        <div>
-                            <a class="stockProduit">Stock : 2</a>
-                            <a>&nbsp;|&nbsp;</a>
-                            <a>PU : 9.27€</a>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M450 856V606H200v-60h250V296h60v250h250v60H510v250h-60Z"/></svg></a>
-                        </div>
-                    </div>
+                    <?php echo getProductList(); ?>
                 </div>
                 <div id="carburantsWrap">                    
                     <div class="carburant">
