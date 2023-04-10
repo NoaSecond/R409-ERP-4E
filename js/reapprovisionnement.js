@@ -1,9 +1,25 @@
 function reapprovisionnementOnload() {
-    headerOnScroll();
-    toggleSwitchLeft();
-    toggleSwitchRight();
-    changeStockColor();
-    console.log("[reapprovisionnement.js] : chargé");
+  headerOnScroll();
+  toggleSwitchLeft();
+  toggleSwitchRight();
+  changeStockColor();
+  updateTotalPrice();
+  console.log("[reapprovisionnement.js] : chargé");  
+}
+
+function updateTotalPrice() {
+  const produitsPanier = document.querySelectorAll('.produitPanier');
+  let prixTotal = 0;
+
+  produitsPanier.forEach(produit => {
+    const prixElement = produit.querySelector('div').querySelector('a').textContent;
+    const quantite = produit.querySelector('input').value;
+    const prix = parseFloat(prixElement.replace(' €', '')) * parseInt(quantite);
+    console.log(prix);
+    prixTotal += prix;
+  });
+
+  document.querySelector('#totalCount a:last-child').textContent = prixTotal.toFixed(2) + ' €';
 }
 
 function headerOnScroll() {

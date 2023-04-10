@@ -161,7 +161,7 @@ function getOrderList() {
                     <div id="totalCount">
                         <div>
                             <a>Total : </a>
-                            <a>498 €</a>
+                            <a>0 €</a>
                         </div>
                         <a id="btnCommander">Commander</a>
                     </div>
