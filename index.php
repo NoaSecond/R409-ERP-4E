@@ -81,6 +81,21 @@ function getClientList() {
     }
     return $clientsList;
 }
+
+function getTransactionList() {
+    $db = createDbConnection();
+    $query = mysqli_query($db, "SELECT id_Transaction, date, montant FROM Transaction");
+    $transactions = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    $transactionsList = "";
+    foreach ($transactions as $transaction) {
+        $transactionsList .='<div class="historyTransaction">'.
+                            '<a>'. $transaction["id_Transaction"] .'42950</a>'.
+                            '<a>'. $transaction["date"] .'</a>'.
+                            '<a>'. $transaction["montant"] .'€</a>'.
+                        '</div>';
+    }
+    return $transactionsList;
+}
 ?>
 
 <!DOCTYPE html>
@@ -238,21 +253,7 @@ function getClientList() {
                 <div class="element">
                     <a>Historique transaction</a>
                     <div id="historyWrap">
-                        <div class="historyTransaction">
-                            <a>0405932</a>
-                            <a>01/04/2064</a>
-                            <a>75€</a>
-                        </div>
-                        <div class="historyTransaction">
-                            <a>0405570</a>
-                            <a>01/04/2064</a>
-                            <a>105€</a>
-                        </div>
-                        <div class="historyTransaction">
-                            <a>040276</a>
-                            <a>01/04/2064</a>
-                            <a>43.99€</a>
-                        </div>
+                        <?php echo getTransactionList(); ?>
                     </div>
                 </div>
             </div>
