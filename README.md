@@ -1,6 +1,6 @@
 <div style="display: flex;">
     <h1>R409-ERP-4E</h1>
-    <img src="https://skillicons.dev/icons?i=html,css,js,jquery,,php,mysql" id="skills" style="margin-left: 20px;">
+    <img src="https://skillicons.dev/icons?i=html,css,js,jquery,php,mysql" id="skills" style="margin-left: 20px;">
 </div>
 
 ## Description :
