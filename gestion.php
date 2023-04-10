@@ -1,3 +1,28 @@
+<?php
+// Voir les erreurs pendant le dev
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require "./php/dbConnect.php";
+
+function getEmployeeList() {
+    $db = createDbConnection();
+    $query = mysqli_query($db, "SELECT prenom, nom FROM Employe");
+    $employees = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    $employeeList = "";
+    foreach ($employees as $employee) {
+        $employeeList .='<div class="member">'.
+                            '<a href="#">' . $employee['prenom'] . "&nbsp;" . $employee['nom'] . "</a>".
+                            '<div>'.           
+                                '<hr>'.
+                                '<a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M261 936q-24.75 0-42.375-17.625T201 876V306h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438V306ZM367 790h60V391h-60v399Zm166 0h60V391h-60v399ZM261 306v570-570Z"/></svg></a>'.
+                            '</div>'.
+                        '</div>';
+    }
+    return $employeeList;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -59,41 +84,7 @@
                     <a href="#" id="addMember"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M474 570q26-32 38.5-66t12.5-79q0-45-12.5-79T474 280q76-17 133.5 23T665 425q0 82-57.5 122T474 570Zm216 326v-94q0-51-26-95t-90-74q173 22 236.5 64T874 802v94H690Zm110-289V507H700v-60h100V347h60v100h100v60H860v100h-60Zm-485-32q-66 0-108-42t-42-108q0-66 42-108t108-42q66 0 108 42t42 108q0 66-42 108t-108 42ZM0 896v-94q0-35 18.5-63.5T68 696q72-32 128.5-46T315 636q62 0 118 14t128 46q31 14 50 42.5t19 63.5v94H0Zm315-381q39 0 64.5-25.5T405 425q0-39-25.5-64.5T315 335q-39 0-64.5 25.5T225 425q0 39 25.5 64.5T315 515ZM60 836h510v-34q0-16-8-30t-25-22q-69-32-117-43t-105-11q-57 0-104.5 11T92 750q-15 7-23.5 21.5T60 802v34Zm255-411Zm0 411Z"/></svg></a>
                 </div>
                 <div id="memberList">
-                    <div class="member">
-                        <a href="#">Geraldine Basse</a>
-                        <div>                        
-                            <hr>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M261 936q-24.75 0-42.375-17.625T201 876V306h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438V306ZM367 790h60V391h-60v399Zm166 0h60V391h-60v399ZM261 306v570-570Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="member">
-                        <a href="#">Michel Conrad</a>
-                        <div>                        
-                            <hr>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M261 936q-24.75 0-42.375-17.625T201 876V306h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438V306ZM367 790h60V391h-60v399Zm166 0h60V391h-60v399ZM261 306v570-570Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="member">
-                        <a href="#">Tyler Durden</a>
-                        <div>                        
-                            <hr>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M261 936q-24.75 0-42.375-17.625T201 876V306h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438V306ZM367 790h60V391h-60v399Zm166 0h60V391h-60v399ZM261 306v570-570Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="member">
-                        <a href="#">Charlotte aux fraises</a>
-                        <div>                        
-                            <hr>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M261 936q-24.75 0-42.375-17.625T201 876V306h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438V306ZM367 790h60V391h-60v399Zm166 0h60V391h-60v399ZM261 306v570-570Z"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="member">
-                        <a href="#">Daniel Portugais</a>
-                        <div>                        
-                            <hr>
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M261 936q-24.75 0-42.375-17.625T201 876V306h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438V306ZM367 790h60V391h-60v399Zm166 0h60V391h-60v399ZM261 306v570-570Z"/></svg></a>
-                        </div>
-                    </div>
+                    <?php echo getEmployeeList(); ?>
                 </div>
             </div>
             <div id="contentRight">
