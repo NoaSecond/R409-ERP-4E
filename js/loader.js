@@ -16,5 +16,11 @@ function onLoad() {
     } catch (error) {
     console.log("[gestion.js] : non-chargé")
     }
+
+    try {
+        indexOnload();
+    } catch (error) {
+    console.log("[index.js] : non-chargé")
+    }
       
 }
