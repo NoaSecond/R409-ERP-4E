@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require "./php/dbConnect.php";
+require "./phpScript/dbConnect.php";
 
 function getEmployeeList() {
     $db = createDbConnection();
@@ -47,6 +47,7 @@ function getEmployeeList() {
     <link rel="stylesheet" href="css/gestion.css">
     <link rel="stylesheet" href="css/responsive/responsive-gestion.css">
     <!--JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script type="text/javascript" src="./js/loader.js"></script>
     <script type="text/javascript" src="./js/menu.js"></script>
     <script type="text/javascript" src="./js/gestion.js"></script>
