@@ -13,7 +13,6 @@ div#contentRight {
 }
 #noMember {
     display: flex;
-    display: none;
     flex-direction: column;
     align-items: center;
 }
@@ -35,7 +34,7 @@ div#contentRight {
     font-weight: 500;
 }
 #selectedMember {
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -170,6 +169,7 @@ div#memberList {
     overflow-y: scroll;
 }
 .member {
+    cursor: pointer;
     display: flex;
     align-items: center;
     background-color: var(--Light-Silver);

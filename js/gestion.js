@@ -46,4 +46,29 @@ function gestionOnload() {
             }
         });
     })
+
+    var members = document.querySelectorAll('.member');
+    const noMember = document.getElementById("noMember");
+    const selectedMember = document.getElementById("selectedMember");
+
+    members.forEach(function(member) {
+        member.addEventListener('click', function() {
+            var selectedEmployeeId = member.querySelector('a').id;
+
+            $.ajax({
+                url: 'phpScript/getSelectedEmployee.php',
+                method: 'POST',
+                data: { employeeId: selectedEmployeeId },
+                success: function(response) {
+                    $('#selectedMember').html(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+
+            noMember.style.display = "none";
+            selectedMember.style.display = "flex";
+        });
+    });
 }

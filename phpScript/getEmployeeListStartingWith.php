@@ -1,11 +1,8 @@
 <?php
-// Inclure le fichier qui contient la fonction createDbConnection()
 require_once('dbConnect.php');
 
-// Définir la fonction getEmployeeListStartingWith
 function getEmployeeListStartingWith($search) {
     $db = createDbConnection();
-    // Échapper la valeur de recherche pour éviter les injections SQL
     $search = mysqli_real_escape_string($db, $search);
     $query = mysqli_query($db, "SELECT prenom, nom FROM Employe WHERE prenom LIKE '$search%' OR nom LIKE '$search%'");
     $employees = mysqli_fetch_all($query, MYSQLI_ASSOC);
@@ -22,11 +19,8 @@ function getEmployeeListStartingWith($search) {
     return $employeeList;
 }
 
-// Vérifier si la valeur de recherche est définie
 if (isset($_POST['search'])) {
-    // Appeler la fonction getEmployeeListStartingWith avec la valeur de recherche
     $employeeList = getEmployeeListStartingWith($_POST['search']);
-    // Retourner la liste des employés sous forme de chaîne de caractères
     echo $employeeList;
 }
 ?>
