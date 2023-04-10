@@ -1,7 +1,7 @@
 <?php
 $dbHost = "localhost";
 $dbUser = "lm105079";
-$dbPassword = "";
+$dbPassword = "Attention22";
 $dbName = "lm105079_R409Database";
 
 function createDbConnection() {
