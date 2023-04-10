@@ -23,6 +23,19 @@ function getProductList() {
     }
     return $productList;
 }
+
+function getEnergyList() {
+    $db = createDbConnection();
+    $query = mysqli_query($db, "SELECT libelle FROM Energie");
+    $energies = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    $energyList = "";
+    foreach ($energies as $energy) {
+        $energyList .= '<div class="carburant">
+                            <a>' . $energy['libelle'] . '</a>
+                        </div>';
+    }
+    return $energyList;
+}
 ?>
 
 <!DOCTYPE html>
@@ -94,19 +107,8 @@ function getProductList() {
                 <div id="produitsWrap">
                     <?php echo getProductList(); ?>
                 </div>
-                <div id="carburantsWrap">                    
-                    <div class="carburant">
-                        <a>Sans Plomb 95 (E10)</a>
-                    </div>             
-                    <div class="carburant">
-                        <a>Sans Plomb 98</a>
-                    </div>             
-                    <div class="carburant">
-                        <a>Super Ethanol</a>
-                    </div>
-                    <div class="carburant">
-                        <a>Diesel</a>
-                    </div>
+                <div id="carburantsWrap">     
+                    <?php echo getEnergyList(); ?>
                 </div>
             </div>
             <div id="contentRight">
