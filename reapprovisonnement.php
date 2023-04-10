@@ -36,6 +36,21 @@ function getEnergyList() {
     }
     return $energyList;
 }
+
+function getOrderList() {
+    $db = createDbConnection();
+    $query = mysqli_query($db, "SELECT Produits.libelle, LigneReappro.quantite, LigneReappro.prixAPayer FROM LigneReappro INNER JOIN Produits ON LigneReappro.id_Produit = Produits.id_Produits");
+    $orders = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    $orderList = "";
+    foreach ($orders as $order) {
+        $orderList .= '<div class="commande">
+                            <a>' . $order['libelle'] . '</a>
+                            <a>' . $order['quantite'] . '</a>
+                            <a>' . $order['prixAPayer'] . '</a>
+                        </div>';
+    }
+    return $orderList;
+}
 ?>
 
 <!DOCTYPE html>
@@ -152,15 +167,7 @@ function getEnergyList() {
                     </div>
                 </div>
                 <div id="commandesWrap">
-                    <div class="commande">
-                        <a>Zizi</a>
-                    </div>
-                    <div class="commande">
-                        <a>Zizi</a>
-                    </div>
-                    <div class="commande">
-                        <a>Zizi</a>
-                    </div>
+                    <?php echo getOrderList(); ?>
                 </div>
             </div>
         </section>
