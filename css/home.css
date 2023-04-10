@@ -1,0 +1,119 @@
+section#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.column {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.column:nth-child(1) {
+    width: 20%;
+}
+.column:nth-child(2) {
+    width: 30%;
+}
+.column:nth-child(3) {
+    width: 50%;
+}
+
+.element {
+    display: flex;
+    flex-direction: column;
+}
+.element>a {
+    width: 100%;
+    color: white;
+    text-align: center;
+    background-color: var(--Black-Olive);
+}
+
+/*ALERTES*/
+#warningsWrap {
+    overflow-y: scroll;
+}
+.warning {
+    display: flex;
+    align-items: center;
+}
+.warning>svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--Vivid-Auburn);
+    margin-right: 15px;
+}
+.warning>a {
+    font-size: 20px;
+    color: var(--Fire-Engine-Red);
+}
+
+/*ENERGIE*/
+#energiesWrap {
+    overflow-y: scroll;
+}
+.energie {
+    display: flex;
+    align-items: center;
+}
+.energie>svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    fill: var(--Lime-Green);
+}
+.energie>a {
+    font-size: 20px;
+}
+
+/*BOUTIQUE*/
+#produitsWrap {
+    overflow-y: scroll;
+}
+.produit {
+    display: flex;
+    align-items: center;
+}
+.produit>svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    fill: var(--Lime-Green);
+}
+.produit>a {
+    font-size: 20px;
+}
+#boutiqueBtnWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Light-Silver);
+}
+#boutiqueBtnWrap>a {
+    padding: 10px;
+    border-radius: 15px;
+    margin: 5px;
+    color: white;
+    background-color: var(--Black-Olive);
+}
+
+/*POMPES*/
+#pompesWrap {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.pompe {
+    display: flex;
+    align-items: center;
+}
+.pompe>svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    fill: var(--Lime-Green);
+}
+.pompe>a {
+    font-size: 20px;
+}
