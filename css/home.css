@@ -37,6 +37,7 @@ section#content {
 .warning {
     display: flex;
     align-items: center;
+    padding: 2px 5px;
 }
 .warning>svg {
     width: 30px;
@@ -56,6 +57,7 @@ section#content {
 .energie {
     display: flex;
     align-items: center;
+    padding: 2px 5px;
 }
 .energie>svg {
     width: 30px;
@@ -74,6 +76,7 @@ section#content {
 .produit {
     display: flex;
     align-items: center;
+    padding: 2px 5px;
 }
 .produit>svg {
     width: 30px;
@@ -87,7 +90,7 @@ section#content {
 #boutiqueBtnWrap {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     background-color: var(--Light-Silver);
 }
@@ -107,6 +110,7 @@ section#content {
 .pompe {
     display: flex;
     align-items: center;
+    padding: 2px 5px;
 }
 .pompe>svg {
     width: 30px;
@@ -116,4 +120,70 @@ section#content {
 }
 .pompe>a {
     font-size: 20px;
+}
+
+/*CLIENT*/
+#clientsWrap {
+    display: flex;
+    height: 60vh;
+}
+
+#clientList {
+    width: 50%;
+    overflow-y: scroll;
+}
+.client {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+    background-color: var(--Light-Silver);
+    border-radius: 15px;
+    margin: 5px;
+}
+.client>a {
+    text-decoration: none;
+    color: black;
+}
+.client>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.client>div>hr {
+    height: 20px;
+    border: solid 0.5px black;
+}
+.client>div>a {
+    display: flex;
+}
+.client>div>a>svg {
+    width: 25px;
+    height: 25px;
+}
+
+#clientInfo {
+    width: 50%;
+    background-color: var(--Light-Silver);
+    overflow-y: scroll;
+}
+#clientInfo>a {
+    font-weight: 600;
+    padding: 5px;
+}
+#clientInfo>div {
+    display: flex;
+    align-items: center;
+    padding: 2px 5px;
+}
+#clientInfo>div>svg {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    fill: var(--Lime-Green);
+}
+#clientInfo>p {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
 }
