@@ -71,7 +71,7 @@ function getClientList() {
     $clientsList = "";
     foreach ($clients as $client) {
         $clientsList .='<div class="client">'.
-                            '<a href="#">' . $client['id_Client'] . "&nbsp;" . $client['nom'] . "</a>".
+                            '<a href="#" id="'. $client['id_Client'] .'">' . $client['id_Client'] . "&nbsp;" . $client['nom'] . "</a>".
                             '<div>'.
                                 '<a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M180 876h44l443-443-44-44-443 443v44Zm614-486L666 262l42-42q17-17 42-17t42 17l44 44q17 17 17 42t-17 42l-42 42Zm-42 42L248 936H120V808l504-504 128 128Zm-107-21-22-22 44 44-22-22Z"/></svg></a>'.
                                 '<hr>'.
@@ -80,21 +80,6 @@ function getClientList() {
                         '</div>';
     }
     return $clientsList;
-}
-
-function getTransactionList() {
-    $db = createDbConnection();
-    $query = mysqli_query($db, "SELECT id_Transaction, date, montant FROM Transaction");
-    $transactions = mysqli_fetch_all($query, MYSQLI_ASSOC);
-    $transactionsList = "";
-    foreach ($transactions as $transaction) {
-        $transactionsList .='<div class="historyTransaction">'.
-                            '<a>'. $transaction["id_Transaction"] .'42950</a>'.
-                            '<a>'. $transaction["date"] .'</a>'.
-                            '<a>'. $transaction["montant"] .'€</a>'.
-                        '</div>';
-    }
-    return $transactionsList;
 }
 ?>
 
@@ -122,8 +107,10 @@ function getTransactionList() {
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/responsive/responsive-home.css">
     <!--JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script type="text/javascript" src="./js/loader.js"></script>
     <script type="text/javascript" src="./js/menu.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
 </head>
 <body onload="onLoad();">
     <main>        
@@ -196,21 +183,8 @@ function getTransactionList() {
                             <?php echo getClientList(); ?>
                         </div>
                         <div id="clientInfo">
-                            <a>Daniel Portugais</a>
-                            <div>
-                                <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><path d="M24,44c-2.7,0-5.3-0.5-7.8-1.6c-2.4-1-4.6-2.5-6.4-4.3s-3.2-3.9-4.3-6.4S4,26.7,4,24c0-2.8,0.5-5.4,1.6-7.8s2.5-4.6,4.3-6.4s3.9-3.2,6.4-4.3S21.3,4,24,4c2.8,0,5.4,0.5,7.8,1.6s4.6,2.5,6.4,4.3s3.2,3.9,4.3,6.4c1.1,2.4,1.6,5,1.6,7.8c0,2.7-0.5,5.3-1.6,7.8c-1,2.4-2.5,4.6-4.3,6.4s-3.9,3.2-6.4,4.3C29.4,43.5,26.8,44,24,44z"/></svg>
-                                <a>Carte membre</a>
-                            </div>
-                            <div>
-                                <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><path d="M24,44c-2.7,0-5.3-0.5-7.8-1.6c-2.4-1-4.6-2.5-6.4-4.3s-3.2-3.9-4.3-6.4S4,26.7,4,24c0-2.8,0.5-5.4,1.6-7.8s2.5-4.6,4.3-6.4s3.9-3.2,6.4-4.3S21.3,4,24,4c2.8,0,5.4,0.5,7.8,1.6s4.6,2.5,6.4,4.3s3.2,3.9,4.3,6.4c1.1,2.4,1.6,5,1.6,7.8c0,2.7-0.5,5.3-1.6,7.8c-1,2.4-2.5,4.6-4.3,6.4s-3.9,3.2-6.4,4.3C29.4,43.5,26.8,44,24,44z"/></svg>
-                                <a>Carte énergie</a>
-                            </div>
-                            <a>Coordonnées</a>
-                            <p>
-                                <a>+33 6 58 58 58 58</a>
-                                <a>256 Rue de la paix, Jérusalem</a>
-                            </p>
-                        </div>
+                            
+                         </div>
                     </div>
                 </div>
             </div>
@@ -253,7 +227,21 @@ function getTransactionList() {
                 <div class="element">
                     <a>Historique transaction</a>
                     <div id="historyWrap">
-                        <?php echo getTransactionList(); ?>
+                        <div class="historyTransaction">
+                            <a>0405932</a>
+                            <a>01/04/2064</a>
+                            <a>75€</a>
+                        </div>
+                        <div class="historyTransaction">
+                            <a>0405570</a>
+                            <a>01/04/2064</a>
+                            <a>105€</a>
+                        </div>
+                        <div class="historyTransaction">
+                            <a>040276</a>
+                            <a>01/04/2064</a>
+                            <a>43.99€</a>
+                        </div>
                     </div>
                 </div>
             </div>
