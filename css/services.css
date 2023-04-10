@@ -45,6 +45,7 @@ section#content {
 }
 .service>div>div>a {
     margin-right: 25px;
+    width: 200px;
 }
 .service>div>div>div>a>svg {
     width: 35px;
