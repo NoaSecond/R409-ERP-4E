@@ -4,7 +4,15 @@ function reapprovisionnementOnload() {
   toggleSwitchRight();
   changeStockColor();
   updateTotalPrice();
-  console.log("[reapprovisionnement.js] : chargé");  
+  console.log("[reapprovisionnement.js] : chargé");
+  
+  //Update totalPrice when price change
+  const inputProduits = document.querySelectorAll('input[name="qttProduit"]');
+  inputProduits.forEach(input => {
+    input.addEventListener('change', () => {
+      updateTotalPrice();
+    });
+  });
 }
 
 function updateTotalPrice() {
