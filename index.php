@@ -38,13 +38,18 @@ function getEnergieList() {
 
 function getBoutiqueList() {
     $db = createDbConnection();
-    $query = mysqli_query($db, "SELECT libelle FROM Produits");
+    $query = mysqli_query($db, "SELECT libelle, id_Produits FROM Produits WHERE libelle NOT IN (SELECT libelle FROM Energie)");
     $produits = mysqli_fetch_all($query, MYSQLI_ASSOC);
     $produitsList = "";
     foreach ($produits as $produit) {
+        $etat = '<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><path d="M24,44c-2.7,0-5.3-0.5-7.8-1.6c-2.4-1-4.6-2.5-6.4-4.3s-3.2-3.9-4.3-6.4S4,26.7,4,24c0-2.8,0.5-5.4,1.6-7.8s2.5-4.6,4.3-6.4s3.9-3.2,6.4-4.3S21.3,4,24,4c2.8,0,5.4,0.5,7.8,1.6s4.6,2.5,6.4,4.3s3.2,3.9,4.3,6.4c1.1,2.4,1.6,5,1.6,7.8c0,2.7-0.5,5.3-1.6,7.8c-1,2.4-2.5,4.6-4.3,6.4s-3.9,3.2-6.4,4.3C29.4,43.5,26.8,44,24,44z"/></svg>';
+        if($produit["id_Produits"] == 5){
+            
+            $etat = '<svg version="1.1" id="Calque_1" style="fill:var(--Vivid-Auburn);" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><path d="M24,44c-2.7,0-5.3-0.5-7.8-1.6c-2.4-1-4.6-2.5-6.4-4.3s-3.2-3.9-4.3-6.4S4,26.7,4,24c0-2.8,0.5-5.4,1.6-7.8s2.5-4.6,4.3-6.4s3.9-3.2,6.4-4.3S21.3,4,24,4c2.8,0,5.4,0.5,7.8,1.6s4.6,2.5,6.4,4.3s3.2,3.9,4.3,6.4c1.1,2.4,1.6,5,1.6,7.8c0,2.7-0.5,5.3-1.6,7.8c-1,2.4-2.5,4.6-4.3,6.4s-3.9,3.2-6.4,4.3C29.4,43.5,26.8,44,24,44z"/></svg>';
+        };
         $produitsList .='<div class="produit">'.
-                            '<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><path d="M24,44c-2.7,0-5.3-0.5-7.8-1.6c-2.4-1-4.6-2.5-6.4-4.3s-3.2-3.9-4.3-6.4S4,26.7,4,24c0-2.8,0.5-5.4,1.6-7.8s2.5-4.6,4.3-6.4s3.9-3.2,6.4-4.3S21.3,4,24,4c2.8,0,5.4,0.5,7.8,1.6s4.6,2.5,6.4,4.3s3.2,3.9,4.3,6.4c1.1,2.4,1.6,5,1.6,7.8c0,2.7-0.5,5.3-1.6,7.8c-1,2.4-2.5,4.6-4.3,6.4s-3.9,3.2-6.4,4.3C29.4,43.5,26.8,44,24,44z"/></svg>'.
-                            '<a>' . $produit["libelle"] . "</a>".
+                            $etat
+                            .'<a>' . $produit["libelle"] . "</a>".
                         '</div>';
     }
     return $produitsList;
@@ -56,9 +61,19 @@ function getPompeList() {
     $pompes = mysqli_fetch_all($query, MYSQLI_ASSOC);
     $pompesList = "";
     foreach ($pompes as $pompe) {
+        $etat = '<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><path d="M24,44c-2.7,0-5.3-0.5-7.8-1.6c-2.4-1-4.6-2.5-6.4-4.3s-3.2-3.9-4.3-6.4S4,26.7,4,24c0-2.8,0.5-5.4,1.6-7.8s2.5-4.6,4.3-6.4s3.9-3.2,6.4-4.3S21.3,4,24,4c2.8,0,5.4,0.5,7.8,1.6s4.6,2.5,6.4,4.3s3.2,3.9,4.3,6.4c1.1,2.4,1.6,5,1.6,7.8c0,2.7-0.5,5.3-1.6,7.8c-1,2.4-2.5,4.6-4.3,6.4s-3.9,3.2-6.4,4.3C29.4,43.5,26.8,44,24,44z"/></svg>';
+        if($pompe["id_Pompe"] == 1){
+            
+            $etat = '<svg version="1.1" id="Calque_1" style="fill:var(--Vivid-Auburn);" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><path d="M24,44c-2.7,0-5.3-0.5-7.8-1.6c-2.4-1-4.6-2.5-6.4-4.3s-3.2-3.9-4.3-6.4S4,26.7,4,24c0-2.8,0.5-5.4,1.6-7.8s2.5-4.6,4.3-6.4s3.9-3.2,6.4-4.3S21.3,4,24,4c2.8,0,5.4,0.5,7.8,1.6s4.6,2.5,6.4,4.3s3.2,3.9,4.3,6.4c1.1,2.4,1.6,5,1.6,7.8c0,2.7-0.5,5.3-1.6,7.8c-1,2.4-2.5,4.6-4.3,6.4s-3.9,3.2-6.4,4.3C29.4,43.5,26.8,44,24,44z"/></svg>';
+        };
+        if($pompe["id_Pompe"] == 6){
+            
+            $etat = '<svg version="1.1" id="Calque_1" style="fill:var(--Carrot-Orange);" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><path d="M24,44c-2.7,0-5.3-0.5-7.8-1.6c-2.4-1-4.6-2.5-6.4-4.3s-3.2-3.9-4.3-6.4S4,26.7,4,24c0-2.8,0.5-5.4,1.6-7.8s2.5-4.6,4.3-6.4s3.9-3.2,6.4-4.3S21.3,4,24,4c2.8,0,5.4,0.5,7.8,1.6s4.6,2.5,6.4,4.3s3.2,3.9,4.3,6.4c1.1,2.4,1.6,5,1.6,7.8c0,2.7-0.5,5.3-1.6,7.8c-1,2.4-2.5,4.6-4.3,6.4s-3.9,3.2-6.4,4.3C29.4,43.5,26.8,44,24,44z"/></svg>';
+        };
+        
         $pompesList .='<div class="produit">'.
-                            '<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><path d="M24,44c-2.7,0-5.3-0.5-7.8-1.6c-2.4-1-4.6-2.5-6.4-4.3s-3.2-3.9-4.3-6.4S4,26.7,4,24c0-2.8,0.5-5.4,1.6-7.8s2.5-4.6,4.3-6.4s3.9-3.2,6.4-4.3S21.3,4,24,4c2.8,0,5.4,0.5,7.8,1.6s4.6,2.5,6.4,4.3s3.2,3.9,4.3,6.4c1.1,2.4,1.6,5,1.6,7.8c0,2.7-0.5,5.3-1.6,7.8c-1,2.4-2.5,4.6-4.3,6.4s-3.9,3.2-6.4,4.3C29.4,43.5,26.8,44,24,44z"/></svg>'.
-                            '<a> Pompe ' . $pompe["id_Pompe"] . "&nbsp;" . $pompe["etat"] . "</a>".
+                            $etat
+                            .'<a> Pompe ' . $pompe["id_Pompe"] . "&nbsp;" . $pompe["etat"] . "</a>".
                         '</div>';
     }
     return $pompesList;
@@ -148,7 +163,7 @@ function getClientList() {
                         </div>
                         <div class="warning">
                             <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><path d="M24,44c-2.7,0-5.3-0.5-7.8-1.6c-2.4-1-4.6-2.5-6.4-4.3s-3.2-3.9-4.3-6.4S4,26.7,4,24c0-2.8,0.5-5.4,1.6-7.8s2.5-4.6,4.3-6.4s3.9-3.2,6.4-4.3S21.3,4,24,4c2.8,0,5.4,0.5,7.8,1.6s4.6,2.5,6.4,4.3s3.2,3.9,4.3,6.4c1.1,2.4,1.6,5,1.6,7.8c0,2.7-0.5,5.3-1.6,7.8c-1,2.4-2.5,4.6-4.3,6.4s-3.9,3.2-6.4,4.3C29.4,43.5,26.8,44,24,44z"/></svg>
-                            <a>Lays - STOCK FAIBLE</a>
+                            <a>Nettoyant vitres - STOCK FAIBLE</a>
                         </div>
                     </div>
                 </div>
