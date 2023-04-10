@@ -7,7 +7,7 @@ require "./phpScript/dbConnect.php";
 
 function getProductList() {
     $db = createDbConnection();
-    $query = mysqli_query($db, "SELECT libelle, quantite, prixProduit FROM Produits");
+    $query = mysqli_query($db, "SELECT libelle, quantite, prixProduit FROM Produits WHERE libelle NOT IN (SELECT libelle FROM Energie)");
     $products = mysqli_fetch_all($query, MYSQLI_ASSOC);
     $productList = "";
     foreach ($products as $product) {
