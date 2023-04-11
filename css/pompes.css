@@ -13,6 +13,7 @@ div#contentRight {
     flex-direction: column;
     align-items: center;
 }
+
 .pompe {
     display: flex;
     border-radius: 15px;
@@ -23,7 +24,8 @@ div#contentRight {
     align-items: flex-start;
     margin: 15px 0px;
 }
-.pompe>div>svg {
+
+.pompe>div>a>svg {
     width: 25px;
     height: 25px;
     fill: var(--Light-Silver);
@@ -38,39 +40,49 @@ div#contentRight {
     border-radius: 5px;
     cursor: pointer;
 }
-.pompe>div>svg:hover {
+
+.pompe>div>a>svg:hover {
     outline: solid 1px var(--Light-Silver);
 }
-#p1 {
+
+.ok {
     background-color: var(--Forest-Green);
 }
-#p2 {
+
+.hs {
     background-color: var(--Vivid-Auburn);
 }
-#p3 {
+
+.maintenance {
     background-color: var(--Carrot-Orange);
 }
+
 .pompe:first-of-type {
     margin-top: 40px;
 }
+
 .pompe>div:first-child {
     display: flex;
     flex-direction: column;
 }
+
 .pompe>div:last-child {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+
 .pompe>div:first-child>a:first-child {
     font-size: 25px;
     color: white;
     margin-bottom: 7px;
 }
+
 .pompe>div:first-child>a:nth-of-type(2) {
     color: white;
     font-size: 12px;
 }
+
 .pompe>div:first-child>a:nth-of-type(3) {
     color: white;
     font-size: 12px;
@@ -85,6 +97,7 @@ div#contentLeft {
     align-items: center;
     justify-content: center;
 }
+
 .resume {
     display: flex;
     border: solid 1px var(--Black-Olive);
