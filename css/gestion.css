@@ -13,7 +13,7 @@ section#popUp>div {
     background-color: var(--Black-Olive);
     box-shadow: black 0 0 10px 0px;
     border-radius: 15px;
-    width: 70vw;
+    width: 50vw;
     height: 70vh;
     flex-direction: column;
     justify-content: space-between;
