@@ -1,3 +1,69 @@
+/*-----POPUP-----*/
+section#popUp {
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+}
+section#popUp>div {
+    display: flex;
+    background-color: var(--Black-Olive);
+    border-radius: 15px;
+    width: 70vw;
+    height: 70vh;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0.98;
+}
+a#closePopUp {
+    align-self: flex-end;
+    padding: 10px 20px;
+    margin: 15px;
+    background-color: var(--Gray);
+    border-radius: 15px;
+    width: min-content;
+    height: fit-content;
+    color: black;
+    cursor: pointer;
+}
+section#popUp>div>form {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 50px 100px 0px;
+    justify-items: start;
+    justify-content: space-between;
+}
+section#popUp>div>form>div {
+    margin: 15px 0px;
+    display: flex;
+    flex-direction: column;
+}
+section#popUp>div>form>div>label {
+    margin-bottom: 10px;
+    color: white;
+}
+input[type="text"], select, input[type="submit"], input[type="email"], input[type="tel"] {
+    width: 200px;
+    height: 35px;
+    padding: 0px 15px;
+    border: 0px;
+    border-radius: 35px;
+}
+section#popUp>div>form>input[type="submit"] {
+    margin-top: 50px;
+    width: min-content;
+    height: min-content;
+    padding: 10px 30px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+
+/*-----CONTENT-----*/
 section#content {
     display: flex;
 }

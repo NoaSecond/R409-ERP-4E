@@ -54,6 +54,45 @@ function getEmployeeList() {
 </head>
 <body onload="onLoad();">
     <main>        
+        <section id="popUp">
+            <div>
+                <form action="/action_page.php">
+                    <div>
+                        <label for="fname">Prénom :</label>
+                        <input type="text" id="fname" name="fname" placeholder="John">
+                    </div>
+                    <div>
+                        <label for="lname">Nom :</label>
+                        <input type="text" id="lname" name="lname" placeholder="Doe">
+                    </div>
+                    <div>
+                        <label for="telPro">Tel (Pro) :</label>
+                        <input type="tel" id="telPro" name="telPro" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" required>
+                    </div>
+                    <div>
+                        <label for="telPerso">Tel (Perso) :</label>
+                        <input type="tel" id="telPerso" name="telPerso" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" required>
+                    </div>
+                    <div>
+                        <label for="email">Email :</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div>
+                        <label for="address">Adresse :</label>
+                        <input type="text" id="address" name="address" placeholder="Adresse">
+                    </div>
+                    <div>
+                        <label for="poste">Poste :</label>
+                        <select name="poste" id="poste">
+                            <option value="employe">Employé</option>
+                            <option value="gerant">Gérant</option>
+                        </select>
+                    </div>
+                    <input type="submit" value="Ajouter">
+                </form> 
+                <a id="closePopUp">Fermer</a>
+            </div>
+        </section>
         <section id="menu">
             <a id="menuArrowSVG"><svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35"><path d="M480 711 240 471l43-43 197 198 197-197 43 43-240 239Z"/></svg></a>
             <div>

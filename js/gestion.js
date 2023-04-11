@@ -71,4 +71,16 @@ function gestionOnload() {
             selectedMember.style.display = "flex";
         });
     });
+
+    const addMemberBtn = document.getElementById('addMember');
+    const popUp = document.getElementById('popUp');
+    const closePopUp = document.getElementById('closePopUp');
+
+    addMemberBtn.addEventListener('click', function() {
+        popUp.style.display = "flex";
+    });
+
+    closePopUp.addEventListener('click', function() {
+        popUp.style.display = "none";
+    });
 }
