@@ -11,6 +11,7 @@ section#popUp {
 section#popUp>div {
     display: flex;
     background-color: var(--Black-Olive);
+    box-shadow: black 0 0 10px 0px;
     border-radius: 15px;
     width: 70vw;
     height: 70vh;

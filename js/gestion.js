@@ -77,10 +77,17 @@ function gestionOnload() {
     const closePopUp = document.getElementById('closePopUp');
 
     addMemberBtn.addEventListener('click', function() {
+        popUp.style.opacity = "0";
         popUp.style.display = "flex";
+        setTimeout(function(){
+            popUp.style.opacity = "1";
+        }, 100); 
     });
 
     closePopUp.addEventListener('click', function() {
-        popUp.style.display = "none";
+        popUp.style.opacity = "0";
+        setTimeout(function(){
+            popUp.style.display = "none";
+        }, 100); 
     });
 }
